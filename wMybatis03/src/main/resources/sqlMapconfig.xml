@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+
+    <settings>
+        <!-- 打开延迟加载的开关 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 将积极加载改为消极加载，即延迟加载
+           mybatis3.4.1及以下版本默认值为true
+           mybatis3.4.5 默认值为false
+        -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--解决延迟加载失效-->
+        <setting name="lazyLoadTriggerMethods" value=""/>
+
+        <!-- 开启二级缓存，默认是false -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+
+    <typeAliases>
+        <package name="cn.ipc.domain"></package>
+    </typeAliases>
+
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/maybatis01"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置映射文件的位置 -->
+    <mappers>
+        <!-- <mapper resource="cn/ipc/dao/userdao.xml"/> -->
+        <package name="cn.ipc.dao"></package>
+    </mappers>
+
+
+
+
+
+</configuration>
